@@ -1,28 +1,4 @@
-.registration-title > h2 {
-  font-size: 26px;
-  color: #1E2019;
-  margin-top: 25px;
-}
-
-.registration-title > p {
-  font-size: 18px;
-  color: #1E2019;
-}
-
-.alert {
-  color: red;
-}
-
-.registration-form {
-  margin-top:15px;
-  margin-bottom:15px;
-}
-
-label {
-  margin-right: 5px;
-}
-
-#registration-name-input, #registration-username-input, #registration-password-input {
+#login-username-input, #login-password-input {
   transition-property: border, background-color;
   transition-duration: 0.25s;
   transition-timing-function: linear;
@@ -34,17 +10,24 @@ label {
   border: 1px #1E2019 solid;
 }
 
-#registration-name-input:focus, #registration-username-input:focus, #registration-password-input:focus {
+#login-username-input:focus, #login-password-input:focus {
   border-radius: 2px;
   border: 1px #E2C044 solid;
   background-color: #ececec;
 }
 
-footer {
-  margin-top: 10px;
+.login-title > h2 {
+  font-size: 26px;
+  color: #1E2019;
+  margin-top: 25px;
 }
 
-.registration-submit {
+.LoginForm {
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+.login-submit{
   transition-property: background, border-radius, color;
   transition-duration: 0.25s;
   transition-timing-function: linear;
@@ -57,7 +40,7 @@ footer {
   background: #fefefe;
 }
 
-.registration-submit:hover {
+.login-submit:hover {
   cursor: pointer;
   border-radius: 4px;
   border: solid 1px #E2C044;

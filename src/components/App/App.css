@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i');
+
+* {
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Arimo', sans-serif;
+}
+
+body {
+  width: 100%;
+  background-color: #E2C044;
+  color: #1E2019;
+}
+
+main {
+  width: 80%;
+}
+
+.error {
+  color: red;
+}

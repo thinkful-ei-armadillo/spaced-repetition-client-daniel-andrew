@@ -42,6 +42,7 @@ class RegistrationForm extends Component {
     return (
       <form
         onSubmit={this.handleSubmit}
+        className='registration-form'
       >
         <div role='alert'>
           {error && <p>{error}</p>}
@@ -79,9 +80,9 @@ class RegistrationForm extends Component {
           />
         </div>
         <footer>
-          <Button type='submit'>
+          <Button type='submit' className='registration-submit'>
             Sign up
-          </Button>
+          </Button><br/><br/>
           {' '}
           <Link to='/login'>Already have an account?</Link>
         </footer>
