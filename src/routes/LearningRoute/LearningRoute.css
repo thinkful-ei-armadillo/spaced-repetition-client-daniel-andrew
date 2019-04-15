@@ -1,0 +1,31 @@
+#learn-submit-button {
+  width: 150px;
+  height: 34px;
+}
+
+#learn-guess-input {
+  transition-property: border, background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: linear;
+  text-align: left;
+  padding: 5px;
+  margin: 2px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px #1E2019 solid;
+  height: 30px;
+  width: 150px;
+}
+
+#learn-guess-input:focus {
+  border-radius: 2px;
+  border: 1px #E2C044 solid;
+  background-color: #ececec;
+}
+
+#learn-word {
+  font-size: 26px;
+  font-weight: 500;
+  color: #1E2019;
+  font-style: italic;
+}
