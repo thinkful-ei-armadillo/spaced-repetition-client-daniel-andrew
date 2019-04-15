@@ -2,3 +2,32 @@ section {
   font-size: 18px;
   color: #111;
 }
+
+.words-container{
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 70%;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.word{
+  width: 250px;
+  margin: 15px;
+  word-wrap: break-word;
+  padding: 5px;
+  padding-top: 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.dashboard-start-button{
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
