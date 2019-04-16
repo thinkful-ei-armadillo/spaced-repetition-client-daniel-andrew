@@ -8,12 +8,12 @@ import "./LearningRoute.css";
 class LearningRoute extends Component {
   state = {
     nextWord: "",
-    answer: '',
+    answer: "",
     totalScore: 0,
     wordCorrectCount: 0,
     wordIncorrectCount: 0,
     guess: "",
-    result: ""
+    isCorrect: null
   };
 
   handleText = event => {
@@ -40,9 +40,9 @@ class LearningRoute extends Component {
       })
       .then(res => {
         if (res.answer === "Correct") {
-          this.setState({ result: "Correct" });
+          this.setState({ isCorrect: true });
         } else {
-          this.setState({ result: "Incorrect" });
+          this.setState({ isCorrect: false });
         }
       });
   };
@@ -73,12 +73,12 @@ class LearningRoute extends Component {
   render() {
     console.log(this.state);
     let resultTemplate;
-    if (this.state.result === "Correct") {
+    if (this.state.isCorrect === true) {
       resultTemplate = (
         <h2 className="correct-result">Correct!</h2>
       );
     }
-    if (this.state.result === "Incorrect") {
+    if (this.state.isCorrect === false) {
       resultTemplate = (
         <>
           <h2 className="incorrect-result">Good try, but not quite right :(</h2>
@@ -99,7 +99,7 @@ class LearningRoute extends Component {
           <br />
           <br />
           <div className="DisplayFeedback">
-            {this.state.result ? resultTemplate : ""}
+            {this.state.isCorrect ? resultTemplate : resultTemplate}
           </div>
           <br />
           <form className="learn-form" onSubmit={e => this.handleSubmit(e)}>
