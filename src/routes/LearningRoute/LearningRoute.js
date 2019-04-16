@@ -59,27 +59,28 @@ class LearningRoute extends Component {
             isCorrect: true, 
             wordCorrectCount: this.state.wordCorrectCount + 1
            });
-
-
-
-          // fetch(`${config.API_ENDPOINT}/language/guess`, {
-          //   method: "PUT",
-          //   headers: {
-          //     Authorization: `Bearer ${TokenService.getAuthToken()}`,
-          //     "content-type": "application/json"
-          //   },
-          //   body: JSON.stringify({ wordCorrectCount: this.state.wordCorrectCount })
-          // })
-          //   .then(res => {
-          //     return res.status();
-          // })
-
         } else {
           this.setState({ 
             isCorrect: false,
             wordIncorrectCount: this.state.wordIncorrectCount + 1
           });
         }
+
+        // fetch(`${config.API_ENDPOINT}/language/guess`, {
+          //   method: "PUT",
+          //   headers: {
+          //     Authorization: `Bearer ${TokenService.getAuthToken()}`,
+          //     "content-type": "application/json"
+          //   },
+          //   body: JSON.stringify({ 
+            //   wordCorrectCount: this.state.wordCorrectCount,
+            //   wordIncorrectCount: this.state.wordIncorrectCount
+          // })
+          // })
+          //   .then(res => {
+          //     return res.status();
+          // })
+
       });
   };
 
