@@ -84,6 +84,31 @@ class LearningRoute extends Component {
       });
   };
 
+  handleNext = event => {
+    event.preventDefault();
+
+    fetch(`${config.API_ENDPOINT}/language/head`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+        "content-type": "application/json"
+      }
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        console.log(res);
+        this.setState({
+          nextWord: res.nextWord,
+          totalScore: res.totalScore,
+          wordCorrectCount: res.wordCorrectCount,
+          wordIncorrectCount: res.wordIncorrectCount
+        });
+      });
+    
+  }
+
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/language/head`, {
       method: "GET",
