@@ -5,8 +5,9 @@
     font-size: 14px;
     font-weight: 700;
     color: #1E2019;
-    width: 75px;
-    height: 35px;
+    /* width: 75px;
+    height: 35px; */
+    padding: 8px;
     border-radius: 6px;
     border: solid 0px #1E2019;
     background: #fefefe;

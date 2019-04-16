@@ -3,17 +3,18 @@ import config from "../../config";
 import TokenService from "../../services/token-service";
 import { Input, Label } from "../../components/Form/Form";
 import Button from "../../components/Button/Button";
+import { Link } from 'react-router-dom';
 import "./LearningRoute.css";
 
 class LearningRoute extends Component {
   state = {
     nextWord: "",
-    answer: "",
-    totalScore: 0,
     wordCorrectCount: 0,
     wordIncorrectCount: 0,
-    guess: "",
-    isCorrect: null
+    totalScore: 0,
+    answer: "",
+    isCorrect: null,
+    guess: ""
   };
 
   handleText = event => {
@@ -33,16 +34,51 @@ class LearningRoute extends Component {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         "content-type": "application/json"
       },
-      body: JSON.stringify({ guess: this.state.guess })
+      body: JSON.stringify({ 
+        guess: this.state.guess 
+      })
     })
       .then(res => {
         return res.json();
       })
       .then(res => {
-        if (res.answer === "Correct") {
-          this.setState({ isCorrect: true });
+        console.log(res);
+
+        this.setState({
+          answer: res.answer,
+          isCorrect: res.isCorrect,
+          nextWord: res.nextWord,
+          totalScore: res.totalScore,
+          wordCorrectCount: res.wordCorrectCount,
+          wordIncorrectCount: res.wordIncorrectCount
+        })
+
+        if (res.answer === this.state.guess) {
+          
+          this.setState({ 
+            isCorrect: true, 
+            wordCorrectCount: this.state.wordCorrectCount + 1
+           });
+
+
+
+          // fetch(`${config.API_ENDPOINT}/language/guess`, {
+          //   method: "PUT",
+          //   headers: {
+          //     Authorization: `Bearer ${TokenService.getAuthToken()}`,
+          //     "content-type": "application/json"
+          //   },
+          //   body: JSON.stringify({ wordCorrectCount: this.state.wordCorrectCount })
+          // })
+          //   .then(res => {
+          //     return res.status();
+          // })
+
         } else {
-          this.setState({ isCorrect: false });
+          this.setState({ 
+            isCorrect: false,
+            wordIncorrectCount: this.state.wordIncorrectCount + 1
+          });
         }
       });
   };
@@ -62,7 +98,6 @@ class LearningRoute extends Component {
         console.log(res);
         this.setState({
           nextWord: res.nextWord,
-          answer: res.correctAnswer,
           totalScore: res.totalScore,
           wordCorrectCount: res.wordCorrectCount,
           wordIncorrectCount: res.wordIncorrectCount
@@ -72,10 +107,17 @@ class LearningRoute extends Component {
 
   render() {
     console.log(this.state);
+
+    let displayScore = (
+      <div className="DisplayScore">
+        <p>Your total score is: {this.state.totalScore}</p>
+      </div>
+    );
+
     let resultTemplate;
     if (this.state.isCorrect === true) {
       resultTemplate = (
-        <h2 className="correct-result">Correct!</h2>
+        <h2 className="correct-result">You were correct! :D</h2>
       );
     }
     if (this.state.isCorrect === false) {
@@ -88,19 +130,17 @@ class LearningRoute extends Component {
     }
     return (
       <section>
-        <h1>Translate the word:</h1>
+        {!this.state.answer ? 
+          <h2>Translate the word:</h2> : 
+          <div className="DisplayFeedback">
+            {this.state.isCorrect ? resultTemplate : resultTemplate}
+          </div>}
         <br />
         <span id="learn-word">{this.state.nextWord}</span>
         <br /><br />
         <main>
-          <div className="DisplayScore">
-            <p>Your total score is: {this.state.totalScore}</p>
-          </div>
+          {displayScore}
           <br />
-          <br />
-          <div className="DisplayFeedback">
-            {this.state.isCorrect ? resultTemplate : resultTemplate}
-          </div>
           <br />
           <form className="learn-form" onSubmit={e => this.handleSubmit(e)}>
             <Label htmlFor="learn-guess-input">
@@ -117,9 +157,15 @@ class LearningRoute extends Component {
             />
             <br />
             <br />
+            {!this.state.answer ? 
             <Button type="submit" id="learn-submit-button">
               Submit your answer
-            </Button>
+            </Button> :
+            <Link to='learn'>
+              <Button id="learn-link-button">
+              Try another word!
+              </Button>
+            </Link>}
           </form>
           <br />
           <p>
