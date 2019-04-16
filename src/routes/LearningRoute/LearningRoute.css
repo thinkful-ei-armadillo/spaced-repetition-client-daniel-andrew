@@ -29,3 +29,15 @@
   color: #1E2019;
   font-style: italic;
 }
+
+.result-container{
+  height: 20px;
+}
+
+.correct-result{
+  color: green;
+}
+
+.incorrect-result{
+  color: red;
+}
