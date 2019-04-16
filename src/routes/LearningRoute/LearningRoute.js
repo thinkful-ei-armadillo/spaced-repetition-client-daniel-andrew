@@ -75,15 +75,15 @@ class LearningRoute extends Component {
     let resultTemplate;
     if (this.state.result === "Correct") {
       resultTemplate = (
-        <h2 className="correct-result">Good try, but not quite right :(</h2>
+        <h2 className="correct-result">Correct!</h2>
       );
     }
     if (this.state.result === "Incorrect") {
       resultTemplate = (
-        <div className="DisplayFeedback">
-        <h2 className="incorrect-result">Good try, but not quite right :(</h2>
-        <p>The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!</p>
-        </div>
+        <>
+          <h2 className="incorrect-result">Good try, but not quite right :(</h2>
+          <p>The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!</p>
+        </>
       );
     }
     return (
@@ -91,16 +91,17 @@ class LearningRoute extends Component {
         <h1>Translate the word:</h1>
         <br />
         <span id="learn-word">{this.state.nextWord}</span>
-        <br />
+        <br /><br />
         <main>
           <div className="DisplayScore">
             <p>Your total score is: {this.state.totalScore}</p>
           </div>
           <br />
           <br />
-          <div className="result-container">
+          <div className="DisplayFeedback">
             {this.state.result ? resultTemplate : ""}
           </div>
+          <br />
           <form className="learn-form" onSubmit={e => this.handleSubmit(e)}>
             <Label htmlFor="learn-guess-input">
               What's the translation for this word?

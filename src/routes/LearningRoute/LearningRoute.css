@@ -3,6 +3,10 @@
   height: 34px;
 }
 
+.learn-form > label {
+  font-weight: 700;
+}
+
 #learn-guess-input {
   transition-property: border, background-color;
   transition-duration: 0.25s;
@@ -30,11 +34,11 @@
   font-style: italic;
 }
 
-.result-container{
-  height: 20px;
+.result-container {
+  /* height: 20px; */
 }
 
-.correct-result{
+.correct-result {
   color: green;
 }
 
