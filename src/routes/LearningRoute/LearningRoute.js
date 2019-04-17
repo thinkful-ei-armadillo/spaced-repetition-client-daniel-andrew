@@ -44,15 +44,6 @@ class LearningRoute extends Component {
       .then(res => {
         console.log(res);
 
-        this.setState({
-          answer: res.answer,
-          isCorrect: res.isCorrect,
-          nextWord: res.nextWord,
-          totalScore: res.totalScore,
-          wordCorrectCount: res.wordCorrectCount,
-          wordIncorrectCount: res.wordIncorrectCount
-        })
-
         if (res.answer === this.state.guess) {
           
           this.setState({ 
@@ -66,21 +57,14 @@ class LearningRoute extends Component {
           });
         }
 
-        // fetch(`${config.API_ENDPOINT}/language/guess`, {
-          //   method: "PUT",
-          //   headers: {
-          //     Authorization: `Bearer ${TokenService.getAuthToken()}`,
-          //     "content-type": "application/json"
-          //   },
-          //   body: JSON.stringify({ 
-            //   wordCorrectCount: this.state.wordCorrectCount,
-            //   wordIncorrectCount: this.state.wordIncorrectCount
-          // })
-          // })
-          //   .then(res => {
-          //     return res.status();
-          // })
-
+        this.setState({
+          answer: res.answer,
+          isCorrect: res.isCorrect,
+          nextWord: res.nextWord,
+          totalScore: res.totalScore,
+          wordCorrectCount: res.wordCorrectCount,
+          wordIncorrectCount: res.wordIncorrectCount
+        })
       });
   };
 
@@ -100,6 +84,9 @@ class LearningRoute extends Component {
       .then(res => {
         console.log(res);
         this.setState({
+          answer: "",
+          isCorrect: null,
+          guess: "",
           nextWord: res.nextWord,
           totalScore: res.totalScore,
           wordCorrectCount: res.wordCorrectCount,
@@ -188,7 +175,7 @@ class LearningRoute extends Component {
               Submit your answer
             </Button> :
             <Link to='learn'>
-              <Button id="learn-link-button">
+              <Button id="learn-link-button" onClick={(e) => this.handleNext(e)}>
               Try another word!
               </Button>
             </Link>}
