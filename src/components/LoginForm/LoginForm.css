@@ -16,6 +16,10 @@
   background-color: #ececec;
 }
 
+#login-password-input{
+  margin-left: 5px;
+}
+
 .login-title > h2 {
   font-size: 26px;
   color: #1E2019;

@@ -40,7 +40,7 @@ class DashboardRoute extends Component {
   };
   render() {
     return (
-      <section>
+      <section className="dashboard-section">
         <h2>My {this.state.language.name} Dashboard</h2>
         <h3>Words to practice</h3>
         <h4>Total correct answers: {this.state.language.total_score}</h4>

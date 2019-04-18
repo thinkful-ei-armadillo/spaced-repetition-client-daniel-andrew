@@ -16,10 +16,12 @@
 .registration-form {
   margin-top:15px;
   margin-bottom:15px;
+  width: 30%;
 }
 
 label {
   margin-right: 5px;
+  text-align: left;
 }
 
 #registration-name-input, #registration-username-input, #registration-password-input {
@@ -32,6 +34,7 @@ label {
   font-size: 14px;
   border-radius: 4px;
   border: 1px #1E2019 solid;
+  margin-bottom: 14px;
 }
 
 #registration-name-input:focus, #registration-username-input:focus, #registration-password-input:focus {
