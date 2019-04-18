@@ -42,7 +42,7 @@ class LearningRoute extends Component {
         return res.json();
       })
       .then(res => {
-        console.log(res);
+        console.log('total score: ', res.totalScore);
 
         if (res.answer === this.state.guess) {
           
