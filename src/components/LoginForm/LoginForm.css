@@ -16,7 +16,7 @@
   background-color: #ececec;
 }
 
-#login-password-input{
+#login-password-input {
   margin-left: 5px;
 }
 
@@ -31,7 +31,7 @@
   margin-bottom:15px;
 }
 
-.login-submit{
+.login-submit {
   transition-property: background, border-radius, color;
   transition-duration: 0.25s;
   transition-timing-function: linear;
@@ -40,14 +40,12 @@
   width: 75px;
   height: 35px;
   border-radius: 6px;
-  border: solid 1px #1E2019;
   background: #fefefe;
 }
 
 .login-submit:hover {
   cursor: pointer;
   border-radius: 4px;
-  border: solid 1px #E2C044;
   background: #587B7F;
   box-shadow: none;
   color: #ececec;

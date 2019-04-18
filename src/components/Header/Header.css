@@ -6,8 +6,8 @@ header > h1 {
 }
 
 header > h1 > a {
-  transition-property: color;
-  transition-duration: 0.4s;
+  transition-property: color, text-decoration;
+  transition-duration: 0.25s;
   transition-timing-function: linear;
   text-decoration: none;
   left: 10px;
@@ -16,18 +16,19 @@ header > h1 > a {
 
 header > h1 > a:hover {
   color: #393E41;
+  text-decoration: underline;
 }
 
-.Header{
+.Header {
   height: 40px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: baseline;
   margin-bottom: 50px;
 }
 
 nav {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   width: 100%;
 }
 
@@ -35,10 +36,11 @@ nav {
   display: inline-block;
 }
 
-.logged-in-header > span {
+.logged-in-header > nav > span {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 17px;
   color: #222;
+  margin-right: 10px;
 }
 
 .logged-in-header > a {
@@ -51,7 +53,48 @@ nav {
   margin-right: 5px;
 }
 
-.logged-in-header, .logged-out-header{
+.logged-in-header, .logged-out-header {
   text-align: right;
   margin-right: 30px;
+}
+
+.logout-button {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+/* .login-button, .logout-button, .register-button {
+  
+} */
+
+@media only screen and (max-device-width: 480px) {
+  .Header {
+    margin-bottom: 75px;
+  }
+
+  .logged-in-header, .logged-out-header {
+    margin-left: 10px;
+  }
+
+  .logged-in-header {
+    margin-right: 10px;
+  }
+
+  .logged-out-header > a > button {
+    margin-bottom: 10px;
+  }
+
+  header > h1 > a {
+    font-size: 24px;
+  }
+
+}
+
+@media only screen and (max-device-width: 280px) {
+  .register-button {
+    width: 55px;
+  }
+  .Header {
+    margin-bottom: 100px;
+  }
 }

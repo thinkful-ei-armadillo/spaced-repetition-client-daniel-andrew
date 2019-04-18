@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../Button/Button'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
 import './Header.css'
@@ -14,14 +15,16 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='logged-in-header'>
-        <span>
+        <nav>
+        <span className='username-display'>
           {this.context.user.name}
         </span>
-        <nav>
           <Link
             onClick={this.handleLogoutClick}
             to='/login'>
-            Logout
+            <Button className='logout-button'>
+              Logout
+            </Button>
           </Link>
         </nav>
       </div>
@@ -31,9 +34,17 @@ class Header extends Component {
   renderLoginLink() {
     return (
       <nav className='logged-out-header'>
-        <Link to='/login'>Login</Link>
+          <Link to='/login'>
+            <Button className='login-button'>
+              Login
+            </Button>
+          </Link>
         {' '}
-        <Link to='/register'>Sign up</Link>
+          <Link to='/register'>
+            <Button className='register-button'>
+              Sign up
+            </Button>
+          </Link>
       </nav>
     )
   }
@@ -43,7 +54,7 @@ class Header extends Component {
       <header className="Header">
         <h1>
           <Link to='/'>
-            Spaced repetition
+            learn.js
           </Link>
         </h1>
         {TokenService.hasAuthToken()

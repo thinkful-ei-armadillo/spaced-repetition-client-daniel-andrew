@@ -44,8 +44,11 @@ class DashboardRoute extends Component {
         <h2>My {this.state.language.name} Dashboard</h2>
         <h3>Words to practice</h3>
         <h4>Total correct answers: {this.state.language.total_score}</h4>
+        <Link to="/learn" className='mobile-start-button'>
+          <Button className='dashboard-start-button'>Start practicing</Button>
+        </Link>
         <ul className='words-container'>{this.generateWords()}</ul>
-        <Link to="/learn">
+        <Link to="/learn" className='desktop-start-button'>
           <Button className='dashboard-start-button'>Start practicing</Button>
         </Link>
       </section>

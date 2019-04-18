@@ -45,3 +45,7 @@
 .incorrect-result{
   color: red;
 }
+
+#feedback-detail {
+  font-size: 20px;
+}

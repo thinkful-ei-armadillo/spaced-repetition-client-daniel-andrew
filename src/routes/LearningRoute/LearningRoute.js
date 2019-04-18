@@ -136,8 +136,8 @@ class LearningRoute extends Component {
     if (this.state.isCorrect === false) {
       resultTemplate = (
         <>
-          <h2 className="incorrect-result">Good try, but not quite right :(</h2>
-          <p>The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!</p>
+          <h2 className="incorrect-result">Good try, but not quite right :(</h2><br />
+          <p id='feedback-detail'>The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!</p>
         </>
       );
     }
