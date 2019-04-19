@@ -136,27 +136,18 @@ class LearningRoute extends Component {
         </>
       );
     }
-    return (
-      <section>
-        <div className='learning-page-title' aria-live='assertive'>
-          {!this.state.answer ? 
-            <h2>Translate the word:</h2> : 
-            <div className="DisplayFeedback">
-              {this.state.isCorrect ? resultTemplate : resultTemplate}
-            </div>}
+
+    let startView = (
+      <div className='guess-view'>
+        <div className='learning-page-title'>
+          <h2>Translate the word:</h2> 
         </div>
         <br />
-        <div aria-live='polite'>
-        {!this.state.answer ? 
           <span id='learn-word'>
             {this.state.nextWord}
-          </span> : ' ' }
-        </div>  
+          </span>
         <br /><br />
         <main aria-live='polite'>
-          {displayScore}
-          <br />
-          <br />
           <form className="learn-form" onSubmit={e => this.handleSubmit(e)}>
             <Label htmlFor="learn-guess-input">
               What's the translation for this word?
@@ -172,15 +163,9 @@ class LearningRoute extends Component {
             />
             <br />
             <br />
-            {!this.state.answer ? 
             <Button type="submit" id="learn-submit-button">
               Submit your answer
-            </Button> :
-            <Link to='learn'>
-              <Button id="learn-link-button" onClick={(e) => this.handleNext(e)}>
-              Try another word!
-              </Button>
-            </Link>}
+            </Button>
           </form>
           <br />
           <p>
@@ -192,6 +177,31 @@ class LearningRoute extends Component {
             {this.state.wordIncorrectCount} times.
           </p>
         </main>
+      </div>
+    );
+
+    let answeredView = (
+      <div className='answered-view'>
+        <div className='learning-page-title' aria-live='assertive'>
+          <div className="DisplayFeedback">
+              {this.state.isCorrect ? resultTemplate : resultTemplate}
+          </div>
+        </div>
+        <br />
+        <main aria-live='polite'>
+            <Link to='learn'>
+              <Button id="learn-link-button" onClick={(e) => this.handleNext(e)}>
+              Try another word!
+              </Button>
+            </Link>
+        </main>
+      </div>
+    );
+
+    return (
+      <section className='learn-view' aria-live='polite'>
+        {displayScore}<br />
+          {!this.state.answer ? startView : answeredView}
       </section>
     );
   }
