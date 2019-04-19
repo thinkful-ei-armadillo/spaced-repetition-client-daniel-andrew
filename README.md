@@ -5,7 +5,7 @@ by Andrew Bituin && Daniel Ors
 
 **Learn.js** is a demonstration of our ability to construct an application using a spaced repetition algorithm to help users learn JavaScript!
 
-https://andrew-daniel-spaced-repetition.now.sh/
+https://andrew-daniel-learnjs.now.sh/
 
 To sign in and demo the app's features, you may sign in with these credentials:
 
