@@ -1,4 +1,5 @@
-# Andrew Bituin && Daniel Ors Spaced Repetition Capstone - Learn.js
+# Learn.js - Spaced Repetition Application
+by Andrew Bituin && Daniel Ors
 
 **Learn.js** is a demonstration of our ability to construct an application using a spaced repetition algorithm to help users learn JavaScript!
 
