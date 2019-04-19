@@ -26,10 +26,9 @@ class DashboardRoute extends Component {
       });
   }
   generateWords = () => {
-    console.log(this.state.words);
     return this.state.words.map(word => {
       return (
-        <li key={word.id} className='word'>
+        <li key={word.id} className='word' aria-live='off'>
           <h4>{word.original}</h4>
           <p>correct answer count: {word.correct_count}</p>
           <p>incorrect answer count: {word.incorrect_count}</p>
@@ -40,7 +39,7 @@ class DashboardRoute extends Component {
   };
   render() {
     return (
-      <section className="dashboard-section">
+      <section className='dashboard-section' aria-live='off'>
         <h2>My {this.state.language.name} Dashboard</h2>
         <h3>Words to practice</h3>
         <h4>Total correct answers: {this.state.language.total_score}</h4>

@@ -27,7 +27,6 @@ class LearningRoute extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    console.log(this.state);
     fetch(`${config.API_ENDPOINT}/language/guess`, {
       method: "POST",
       headers: {
@@ -42,7 +41,6 @@ class LearningRoute extends Component {
         return res.json();
       })
       .then(res => {
-        console.log('total score: ', res.totalScore);
 
         if (res.answer === this.state.guess) {
           
@@ -82,7 +80,6 @@ class LearningRoute extends Component {
         return res.json();
       })
       .then(res => {
-        console.log(res);
         this.setState({
           answer: "",
           isCorrect: null,
@@ -108,7 +105,6 @@ class LearningRoute extends Component {
         return res.json();
       })
       .then(res => {
-        console.log(res);
         this.setState({
           nextWord: res.nextWord,
           totalScore: res.totalScore,
@@ -119,11 +115,10 @@ class LearningRoute extends Component {
   }
 
   render() {
-    console.log(this.state);
 
     let displayScore = (
       <div className="DisplayScore">
-        <p>Your total score is: {this.state.totalScore}</p>
+        <p aria-live='polite'>Your total score is: {this.state.totalScore}</p>
       </div>
     );
 
@@ -143,15 +138,22 @@ class LearningRoute extends Component {
     }
     return (
       <section>
-        {!this.state.answer ? 
-          <h2>Translate the word:</h2> : 
-          <div className="DisplayFeedback">
-            {this.state.isCorrect ? resultTemplate : resultTemplate}
-          </div>}
+        <div className='learning-page-title' aria-live='assertive'>
+          {!this.state.answer ? 
+            <h2>Translate the word:</h2> : 
+            <div className="DisplayFeedback">
+              {this.state.isCorrect ? resultTemplate : resultTemplate}
+            </div>}
+        </div>
         <br />
-        <span id="learn-word">{this.state.nextWord}</span>
+        <div aria-live='polite'>
+        {!this.state.answer ? 
+          <span id='learn-word'>
+            {this.state.nextWord}
+          </span> : ' ' }
+        </div>  
         <br /><br />
-        <main>
+        <main aria-live='polite'>
           {displayScore}
           <br />
           <br />

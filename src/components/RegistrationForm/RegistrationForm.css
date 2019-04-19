@@ -68,3 +68,7 @@ footer {
   box-shadow: none;
   color: #ececec;
 }
+
+#asterisk-notification {
+  font-style: italic;
+}

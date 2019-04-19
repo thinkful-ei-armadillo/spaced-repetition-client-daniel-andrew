@@ -43,11 +43,15 @@ class RegistrationForm extends Component {
       <form
         onSubmit={this.handleSubmit}
         className='registration-form'
+        aria-live='off'
       >
-        <div role='alert'>
+        <div role='alert' aria-live='assertive'>
           {error && <p>{error}</p>}
         </div>
         <div>
+          <p id='asterisk-notification'>
+            All fields marked with an asterisk (*) are required.
+          </p><br />
           <Label htmlFor='registration-name-input'>
             Enter your name<Required />
           </Label>

@@ -14,7 +14,7 @@ class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div className='logged-in-header'>
+      <div className='logged-in-header' aria-live='off'>
         <nav>
         <span className='username-display'>
           {this.context.user.name}
@@ -33,7 +33,7 @@ class Header extends Component {
 
   renderLoginLink() {
     return (
-      <nav className='logged-out-header'>
+      <nav className='logged-out-header' aria-live='off'>
           <Link to='/login'>
             <Button className='login-button'>
               Login
@@ -51,8 +51,8 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="Header">
-        <h1>
+      <header className="Header" aria-live='polite'>
+        <h1 aria-live='off'>
           <Link to='/'>
             learn.js
           </Link>

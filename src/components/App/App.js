@@ -21,9 +21,9 @@ export default class App extends Component {
   render() {
     const { hasError } = this.state
     return (
-      <div className='App'>
+      <div className='App' aria-live='polite'>
         <Header />
-        <main>
+        <main aria-live='polite'>
           {hasError && (
             <p className='error'>There was an error! Oh no!</p>
           )}

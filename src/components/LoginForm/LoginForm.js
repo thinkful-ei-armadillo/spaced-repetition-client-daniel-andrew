@@ -47,6 +47,7 @@ class LoginForm extends Component {
       <form
         className='LoginForm'
         onSubmit={this.handleSubmit}
+        aria-live='off'
       >
         <div role='alert'>
           {error && <p>{error}</p>}
