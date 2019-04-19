@@ -1,6 +1,32 @@
-# Spaced Repetition Capstone
+# Andrew Bituin && Daniel Ors Spaced Repetition Capstone - Learn.js
 
-## Setup
+**Learn.js** is a demonstration of our ability to construct an application using a spaced repetition algorithm to help users learn JavaScript!
+
+https://andrew-daniel-spaced-repetition.now.sh/
+
+To sign in and demo the app's features, you may sign in with these credentials:
+
+````
+u: demouser
+pw: Demouser123!
+````
+
+## Client Tech Stack
+
+* ReactJS
+* React Router
+* React Context
+* Node.js
+* Node Package Manager (NPM)
+* Cypress Testing
+
+## Server-Side Repository
+
+https://github.com/thinkful-ei-armadillo/spaced-repetition-server-daniel-andrew
+
+## To Fork this Repository and Examine its Client-Side Code:
+
+### Setup
 
 To setup the application
 
@@ -11,11 +37,11 @@ The project expects you have the Spaced repetition API project setup and running
 
 Find instructions to setup the API here https://github.com/Thinkful-Ed/spaced-repetition-api.
 
-## Running project
+### Running project
 
 This is a `create-react-app` project so `npm start` will start the project in development mode with hot reloading by default.
 
-## Running the tests
+### Running the tests
 
 This project uses [Cypress IO](https://docs.cypress.io) for integration testing using the Chrome browser.
 
