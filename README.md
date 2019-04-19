@@ -1,6 +1,8 @@
 # Learn.js - Spaced Repetition Application
 by Andrew Bituin && Daniel Ors
 
+## Summary
+
 **Learn.js** is a demonstration of our ability to construct an application using a spaced repetition algorithm to help users learn JavaScript!
 
 https://andrew-daniel-spaced-repetition.now.sh/
