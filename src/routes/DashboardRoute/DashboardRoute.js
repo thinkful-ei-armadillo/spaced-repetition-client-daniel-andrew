@@ -42,7 +42,9 @@ class DashboardRoute extends Component {
       <section className='dashboard-section' aria-live='off'>
         <h2>My {this.state.language.name} Dashboard</h2>
         <h3>Words to practice</h3>
-        <h4>Total correct answers: {this.state.language.total_score}</h4>
+        <h4>Total correct answers: {this.state.language.total_score}</h4><br />
+        <p>The objective of <b>learn.js</b> is to help you learn JavaScript data types<br /> 
+        and basic syntax by using the spaced repetition learning method.</p>
         <Link to="/learn" className='mobile-start-button'>
           <Button className='dashboard-start-button'>Start practicing</Button>
         </Link>

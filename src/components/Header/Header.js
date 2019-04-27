@@ -16,7 +16,7 @@ class Header extends Component {
     return (
       <div className='logged-in-header' aria-live='off'>
         <nav>
-        <span className='username-display'>
+        <span id='username-display'>
           {this.context.user.name}
         </span>
           <Link

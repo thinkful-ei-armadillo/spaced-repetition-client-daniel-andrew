@@ -41,43 +41,55 @@ class LoginForm extends Component {
     this.firstInput.current.focus()
   }
 
-  render() {
+  renderForm() {
     const { error } = this.state
     return (
       <form
-        className='LoginForm'
-        onSubmit={this.handleSubmit}
-        aria-live='off'
-      >
-        <div role='alert'>
-          {error && <p>{error}</p>}
-        </div>
-        <div>
-          <Label htmlFor='login-username-input'>
-            Username
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='login-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='login-password-input'>
-            Password
-          </Label>
-          <Input
-            id='login-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div><br/>
-        <Button type='submit' className='login-submit'>
-          Login
-        </Button>
-      </form>
+          className='LoginForm'
+          onSubmit={this.handleSubmit}
+          aria-live='off'
+        >
+          <div role='alert'>
+            {error && <p>{error}</p>}
+          </div>
+          <div>
+            <Label htmlFor='login-username-input'>
+              Username
+            </Label>
+            <Input
+              ref={this.firstInput}
+              id='login-username-input'
+              name='username'
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='login-password-input'>
+              Password
+            </Label>
+            <Input
+              id='login-password-input'
+              name='password'
+              type='password'
+              required
+            />
+          </div><br/>
+          <Button type='submit' className='login-submit'>
+            Login
+          </Button>
+        </form>
+    )
+  }
+
+  renderComplete() {
+    setTimeout(function () {alert('Login successful!');}, 5000);
+    return <p>Login successful!</p>;
+  }
+
+  render() {
+
+    return (
+      this.renderForm()
     )
   }
 }

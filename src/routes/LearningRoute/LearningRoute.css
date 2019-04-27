@@ -23,10 +23,11 @@
 }
 
 #learn-word {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 500;
-  color: #1E2019;
+  color: #ececec;
   font-style: italic;
+  text-shadow: 1px 1px rgba(30, 32, 25, 0.7);
 }
 
 .correct-result {
@@ -39,4 +40,20 @@
 
 #feedback-detail {
   font-size: 20px;
+}
+
+#question-wrapper {
+  transition-property: box-shadow, border-radius;
+  transition-duration: 0.25s;
+  transition-timing-function: linear;
+  padding: 30px;
+  background: rgba(88, 123, 127, 0.9);
+  color: #ececec;
+  border: solid 4px #ececec;
+  border-radius: 10px;
+  box-shadow: 4px 4px rgba(30, 32, 25, 0.5);
+}
+
+#question-wrapper:hover {
+  box-shadow: 5px 5px #1E2019;
 }

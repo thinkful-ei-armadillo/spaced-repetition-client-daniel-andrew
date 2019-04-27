@@ -28,6 +28,7 @@ class RegistrationForm extends Component {
         password.value = ''
         this.props.onRegistrationSuccess()
       })
+      .then( window.confirm('Account created!') )
       .catch(res => {
         this.setState({ error: res.error })
       })
@@ -37,8 +38,7 @@ class RegistrationForm extends Component {
     this.firstInput.current.focus()
   }
 
-  render() {
-    const { error } = this.state
+  renderRegistrationForm() {
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -46,7 +46,7 @@ class RegistrationForm extends Component {
         aria-live='off'
       >
         <div role='alert' aria-live='assertive'>
-          {error && <p>{error}</p>}
+          {this.state.error && <p>{this.state.error}</p>}
         </div>
         <div>
           <p id='asterisk-notification'>
@@ -97,6 +97,12 @@ class RegistrationForm extends Component {
           <Link to='/login'>Already have an account?</Link>
         </footer>
       </form>
+    )
+  }
+
+  render() {
+    return (
+      this.renderRegistrationForm()
     )
   }
 }
